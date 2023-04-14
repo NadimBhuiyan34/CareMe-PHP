@@ -20,10 +20,8 @@ if (strlen($_SESSION['aid']==0)) {
     <title>CareMe | Dashboard</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <!-- Custom fonts for this template-->
-    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <link
-        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-        rel="stylesheet">
+    <!-- <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css"> -->
+  
 
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
@@ -135,16 +133,22 @@ if (strlen($_SESSION['aid']==0)) {
   </div>
  
 <!-- Doctor div -->
-<div class=" mt-1 mb-5" id="doctordiv" style="display:none">
-    <div class="d-flex justify-content-between mb-3">
 
-       
-    </div>
+<div class=" mt-1 mb-5" id="doctordiv" style="display:none">
+
+<div class="row">
+<div class="input-group mb-3 col-10 col-xl-5 mx-auto mb-2" >
+  <input type="text" class="form-control shadow" placeholder="Search here" style="border-radius:20px;" id="search">
+ 
+</div>
+
+</div>
+    
     <div class="row g-2">
 
         <div class="col-md-3 col-12 col-xl-4 col-sm-6">
 
-            <div class="card p-2 py-3 text-center border-left-info">
+            <div class="card p-2 py-3 text-center border-left-info doctor">
 
                 <div class="img mb-2">
 
@@ -195,9 +199,12 @@ if (strlen($_SESSION['aid']==0)) {
       
 </div>
 </div>
+
+
+
         <div class="col-md-3 col-12 col-xl-4 col-sm-6">
 
-            <div class="card p-2 py-3 text-center border-left-info">
+            <div class="card p-2 py-3 text-center border-left-info doctor">
 
                 <div class="img mb-2">
 
@@ -205,7 +212,7 @@ if (strlen($_SESSION['aid']==0)) {
                     
                 </div>
 
-                <h5 class="mb-0">Patey Cruiser</h5>
+                <h5 class="mb-0">Nadim Bhuiyan</h5>
                 <small>Neurosurgeon</small>
 
                 <div class="ratings mt-2">
@@ -265,36 +272,22 @@ if (strlen($_SESSION['aid']==0)) {
  
 
 
-<script>
-    $(document).ready(function() {
-$('#myTable1').DataTable({
-  searching: true,
-  paging: true,
-  ordering: true
-});
-});
-</script>
+ 
 <script src="https://kit.fontawesome.com/496c26838e.js" crossorigin="anonymous"></script>
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>
-    <!-- <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.min.js"></script> -->
+ 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-    <!-- Core plugin JavaScript-->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+ 
+   
 
     <!-- Custom scripts for all pages-->
     <script src="js/sb-admin-2.min.js"></script>
-
-    <!-- Page level plugins -->
-    <script src="vendor/chart.js/Chart.min.js"></script>
-
-    <!-- Page level custom scripts -->
-    <script src="js/demo/chart-area-demo.js"></script>
-    <script src="js/demo/chart-pie-demo.js"></script>
+ 
 
 
 
+<!-- Button script -->
 
     <script>
   document.getElementById("doctorbtn").addEventListener("click", doctor);
@@ -344,6 +337,28 @@ $('#myTable1').DataTable({
   
   </script>
   
+  <script>
+  const searchBox = document.getElementById('search');
+
+searchBox.addEventListener('input', function () {
+  filterDoctors(searchBox.value.toLowerCase());
+});
+function filterDoctors(query) {
+  const doctors = document.querySelectorAll('.doctor');
+
+  doctors.forEach(function (doctor) {
+    const name = doctor.querySelector('h5').textContent.toLowerCase();
+    const occupation = doctor.querySelector('small').textContent.toLowerCase();
+
+    if (name.includes(query) || occupation.includes(query)) {
+      doctor.style.display = '';
+    } else {
+      doctor.style.display = 'none';
+    }
+  });
+}
+
+  </script>
 </body>
 
 </html>

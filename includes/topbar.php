@@ -40,28 +40,35 @@ while($row1=mysqli_fetch_array($ret1)){
         <div class=" dropdown-menu bg-white"
             aria-labelledby="userDropdown"> -->
             <ul class="dropdown-menu  pr-5" aria-labelledby="userDropdown">
-            <a class="dropdown-item" href="profile.php">
-                <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+            <a class="dropdown-item " href="profile.php">
+                <i class="fas fa-user fa-sm fa-fw mr-2 text-dark"></i>
                 Profile
+            </a>
+            <a class="dropdown-item" href="dashboard.php">
+            <i class="fa-solid fa-house fa-sm fa-fw mr-2 text-dark"></i>
+                <!-- <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i> -->
+                Dashboard
             </a>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="take-treatment.php">
-                <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+            <i class="fa-solid fa-stethoscope fa-sm fa-fw mr-2 text-dark"></i>
+                <!-- <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i> -->
                 Take Treatement
             </a>
             <a class="dropdown-item" href="prescription.php">
-                <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+            <i class="fa-solid fa-prescription fa-sm fa-fw mr-2 text-dark"></i>
+                <!-- <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i> -->
                Prescription
             </a>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="change-password.php">
-                <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+                <i class="fas fa-cogs fa-sm fa-fw mr-2 text-dark"></i>
               Change Password
             </a>
    
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="logout.php" data-toggle="modal" data-target="#logoutModal">
-                <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+            <a class="dropdown-item text-danger" href="logout.php" data-toggle="modal" data-target="#logoutModal">
+                <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-danger"></i>
                 Logout
             </a>
             </ul>

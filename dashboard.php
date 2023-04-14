@@ -18,22 +18,13 @@ if (strlen($_SESSION['aid']==0)) {
     <meta name="author" content="">
 
     <title>CareMe | Dashboard</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <!-- Custom fonts for this template-->
-    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <link
-        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-        rel="stylesheet">
-        <!-- Datatable -->
-        <link href="vendor/bootstrap/assets/images/favicon.png" rel="icon">
-    <link href="vendor/bootstrap/assets/images/favicon.png" rel="apple-touch-icon">
 
-    <!-- <link rel="stylesheet" href="vendor/bootstrap/assets/css/bootstrap.min.css"> -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
     <link rel="stylesheet" href="vendor/bootstrap/assets/css/datatables.min.css">
-    <!-- <link rel="stylesheet" href="vendor/bootstrap/assets/css/style.css"> -->
-    <!-- Custom styles for this template-->
+ 
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
-    <!-- <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"> -->
+     
   
 <style>
     table {
@@ -107,19 +98,21 @@ background: -webkit-linear-gradient(to right, #6df2f0, #6df2f0, #6df2f0, #6df2f0
  <div class="row m-auto">
     
                     <div class="col-xl-3 col-md-6 mb-4 col-6">
-                            <div class="card border-left-success shadow h-100 py-2">
+                            <div class="card border-left-success shadow">
                                 
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
 
 
-                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                            <div class="text-xs font-weight-bold text-primary  mb-1 text-center">
                                              Room Temperature</div>
                                             
-                                        </div>
-                                        <div class="col-auto">
-                                            <i class="fas fa-users fa-2x text-dark"></i>
+                                            </div>
+
+
+                                        <div class="col-auto text-center mx-auto">
+                                           <strong class="text-dark fs-4">32</strong>
                                         </div>
                                     </div>
                                 </div>
@@ -127,19 +120,19 @@ background: -webkit-linear-gradient(to right, #6df2f0, #6df2f0, #6df2f0, #6df2f0
                             </div>
                         </div>
                     <div class="col-xl-3 col-md-6 mb-4 col-6">
-                            <div class="card border-left-primary shadow h-100 py-2">
+                            <div class="card border-left-primary shadow " style="padding-bottom:3px">
                              
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
 
 
-                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                            <div class="text-xs font-weight-bold text-primary  mb-1">
                                              Humidity</div>
                                             
                                         </div>
-                                        <div class="col-auto">
-                                            <i class="fas fa-users fa-2x text-gray-300"></i>
+                                        <div class="col-auto text-center mx-auto">
+                                           <strong class="text-dark fs-4">50</strong>
                                         </div>
                                     </div>
                                 </div>
@@ -147,19 +140,19 @@ background: -webkit-linear-gradient(to right, #6df2f0, #6df2f0, #6df2f0, #6df2f0
                             </div>
                         </div>
                     <div class="col-xl-3 col-md-6 mb-4 col-6">
-                            <div class="card border-left-info shadow h-100 py-2">
+                            <div class="card border-left-info shadow">
                              
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
 
 
-                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                            <div class="text-xs font-weight-bold text-primary mb-1 text-center">
                                              Body Temperature</div>
                                             
                                         </div>
-                                        <div class="col-auto">
-                                            <i class="fas fa-users fa-2x text-gray-300"></i>
+                                        <div class="col-auto text-center mx-auto">
+                                           <strong class="text-dark fs-4">96</strong>
                                         </div>
                                     </div>
                                 </div>
@@ -167,19 +160,19 @@ background: -webkit-linear-gradient(to right, #6df2f0, #6df2f0, #6df2f0, #6df2f0
                             </div>
                         </div>
                     <div class="col-xl-3 col-md-6 mb-4 col-6">
-                            <div class="card border-left-danger shadow h-100 py-2">
+                            <div class="card border-left-danger shadow" style="padding-bottom:3px">
                              
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
 
 
-                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                            <div class="text-xs font-weight-bold text-primary  mb-1">
                                              Heart Rate</div>
                                             
                                         </div>
-                                        <div class="col-auto">
-                                            <i class="fas fa-users fa-2x text-gray-300"></i>
+                                        <div class="col-auto text-center mx-auto">
+                                           <strong class="text-dark fs-4">85</strong>
                                         </div>
                                     </div>
                                 </div>
@@ -405,34 +398,21 @@ background: -webkit-linear-gradient(to right, #6df2f0, #6df2f0, #6df2f0, #6df2f0
         </div>
 
                     
-                    <script type="text/javascript">
+     <script type="text/javascript">
         $(document).ready(function () {
     $('#example').DataTable();
 });
     </script>
+
+    <!-- Fontawesoma -->
+    <script src="https://kit.fontawesome.com/496c26838e.js" crossorigin="anonymous"></script>
     <!-- Bootstrap core JavaScript-->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <!-- <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.min.js"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-    <!-- Core plugin JavaScript-->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
     <!-- Custom scripts for all pages-->
     <script src="js/sb-admin-2.min.js"></script>
 
-    <!-- Page level plugins -->
-    <script src="vendor/chart.js/Chart.min.js"></script>
-
-    <!-- Page level custom scripts -->
-    <script src="js/demo/chart-area-demo.js"></script>
-    <script src="js/demo/chart-pie-demo.js"></script>
-      <!-- Datatable -->
-     
-
-
-
-    <!-- <script src="vendor/bootstrap/assets/js/bootstrap.bundle.min.js"></script> -->
+    <!-- Data table js -->
     <script src="vendor/bootstrap/assets/js/jquery-3.6.0.min.js"></script>
     <script src="vendor/bootstrap/assets/js/datatables.min.js"></script>
     <script src="vendor/bootstrap/assets/js/pdfmake.min.js"></script>
