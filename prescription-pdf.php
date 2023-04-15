@@ -38,12 +38,12 @@ background: -webkit-linear-gradient(to right, #6df2f0, #6df2f0, #6df2f0, #6df2f0
 
 <body class="gradient-custom-3">
 <?php include_once('includes/topbar.php');?>
-    <div class="container d-flex justify-content-center mt-50 mb-50">
+    <div class="container d-flex justify-content-center  mb-50">
         <div class="row">
-            <div class="col-md-12 text-right mb-3">
-                <button class="btn btn-primary" id="download"> download pdf</button>
+            <div class="col-md-12 text-right mb-3 col-12 col-xl-12">
+                <button class="btn btn-primary" id="download"><i class="fa-solid fa-download fa-shake"></i></button>
             </div>
-            <div class="col-md-12">
+            <div class="col-md-10 col-xl-12 mx-auto col-12">
                 <div class="card" id="invoice"> 
                     <div class="card-header d-flex flex-column" style="background-color:#f7e3cd">
                        <div class="mx-auto">
@@ -58,70 +58,96 @@ background: -webkit-linear-gradient(to right, #6df2f0, #6df2f0, #6df2f0, #6df2f0
                        </div>
                     </div>
                     <div class="card-body">
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <div class="mb-4 pull-left">
+                        <div class="row text-black">
+                            <div class="col-sm-6 col-12 col-md-6 col-xl-3">
+                                 <small>Name: Nadim Bhuiyan</small>
+                            </div>
+                            <div class="col-sm-6 col-12 col-md-6 col-xl-3">
+                                 <small>Age: 25</small>
+                            </div>
+                            <div class="col-sm-6 col-12 col-md-6 col-xl-3">
+                                 <small >Address: Narayanganj</small>
+                            </div>
+                            <div class="col-sm-6 col-12 col-md-6 col-xl-3">
+                                 <small>Date: 12 June 2023</small>
+                            </div> 
 
-                                    <ul class="list list-unstyled mb-0 text-left">
-                                        <li>2269 Six Sigma</li>
-                                        <li>New york city</li>
-                                        <li>+1 474 44737 47 </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="mb-4 ">
-                                    <div class="text-sm-right">
-                                        <h4 class="invoice-color mb-2 mt-md-2">Invoice #BBB1243</h4>
-                                        <ul class="list list-unstyled mb-0">
-                                            <li>Date: <span class="font-weight-semibold">March 15, 2020</span></li>
-                                            <li>Due date: <span class="font-weight-semibold">March 30, 2020</span></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
+                        
                         </div>
-                        <div class="d-md-flex flex-md-wrap">
-                            <div class="mb-4 mb-md-2 text-left"> <span class="text-muted">Invoice To:</span>
-                                <ul class="list list-unstyled mb-0">
-                                    <li>
-                                        <h5 class="my-2">Tibco Turang</h5>
-                                    </li>
-                                    <li><span class="font-weight-semibold">Samantha Mutual funds Ltd</span></li>
-                                    <li>Gurung Street</li>
-                                    <li>23 BB Lane</li>
-                                    <li>Hong kong</li>
-                                    <li>234 456 5678</li>
-                                    <li><a href="#" data-abc="true">tibco@samantha.com</a></li>
-                                </ul>
-                            </div>
-                            <div class="mb-2 ml-auto"> <span class="text-muted">Payment Details:</span>
-                                <div class="d-flex flex-wrap wmin-md-400">
-                                    <ul class="list list-unstyled mb-0 text-left">
-                                        <li>
-                                            <h5 class="my-2">Total Due:</h5>
-                                        </li>
-                                        <li>Bank name:</li>
-                                        <li>Country:</li>
-                                        <li>City:</li>
-                                        <li>Address:</li>
-                                        <li>IBAN:</li>
-                                        <li>SWIFT code:</li>
-                                    </ul>
-                                    <ul class="list list-unstyled text-right mb-0 ml-auto">
-                                        <li>
-                                            <h5 class="font-weight-semibold my-2">$1,090</h5>
-                                        </li>
-                                        <li><span class="font-weight-semibold">Hong Kong Bank</span></li>
-                                        <li>Hong Kong</li>
-                                        <li>Thurnung street, 21</li>
-                                        <li>New standard</li>
-                                        <li><span class="font-weight-semibold">98574959485</span></li>
-                                        <li><span class="font-weight-semibold">BHDHD98273BER</span></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
+                        <!-- name part end -->
+                          
+                       <div class="row">
+
+                        <!-- Symptoms -->
+                              <div class="mt-3 text-xl-left text-sm-left text-md-left text-black">
+                                   <h5 class="fw-bold">Symptoms</h5>
+                                   <hr>
+                             </div> 
+                             
+                             <div class="col-12 col-xl-12">
+                                <p class="text-justify">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt voluptatem quam iusto maxime dolor ullam, officiis sed vero dolorum sit deserunt, rerum sint autem. Sed maxime id quos neque accusantium?</p>
+                             </div>
+                             <!-- Rx table -->
+                              <div class="text-xl-left text-sm-left text-md-left text-black">
+                                   <h5 class="fw-bold">Rx</h5>
+                                   <hr>
+                             </div> 
+                              <div class="float-left  col-xl-12 col-12 ">
+                        
+                        <table class=" table-bordered w-100">
+                            <thead>
+                                <th>Rx</th>
+                                <th>Term</th>
+                                <th>When</th>
+                            </thead>
+                            <tbody>
+                               <tr>
+                                <td>Napa</td>
+                                <td>1+1+1</td>
+                                <td>After</td>
+                               </tr>
+                               <tr>
+                                <td>Napa</td>
+                                <td>1+1+1</td>
+                                <td>After</td>
+                               </tr>
+                               <tr>
+                                <td>Napa</td>
+                                <td>1+1+1</td>
+                                <td>After</td>
+                               </tr>
+                               <tr>
+                                <td>Napa</td>
+                                <td>1+1+1</td>
+                                <td>After</td>
+                               </tr>
+                            </tbody>
+                        </table>
+
+                    
+                       </div>
+                        <div class="mt-3 text-xl-left text-sm-left text-md-left text-black">
+                                   <h5 class="fw-bold">Test</h5>
+                                   <hr>
+                       </div> 
+
+                       <div class="text-left">
+                        <li class="">Blood Test</li>
+                        <li class="">Blood Test</li>
+                        <li class="">Blood Test</li>
+                        
+                       </div>
+
+                        <div class="mt-3 text-xl-left text-sm-left text-md-left text-black">
+                                   <h5 class="fw-bold">Advice</h5>
+                                   <hr>
+                       </div> 
+
+                       <div>
+                        <p class="text-justify">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tempore, maxime? Sequi dolor fugiat quaerat dignissimos neque! Corporis et maiores minus esse minima laudantium, illo nemo natus, maxime dolores explicabo eveniet?</p>
+                       </div>
+                       </div>
+                      
                     </div>
                    
                   
@@ -130,7 +156,11 @@ background: -webkit-linear-gradient(to right, #6df2f0, #6df2f0, #6df2f0, #6df2f0
             </div>
         </div>
     </div>
+
+
+    
 </body>
+  <script src="https://kit.fontawesome.com/496c26838e.js" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </html>
 <?php } ?>

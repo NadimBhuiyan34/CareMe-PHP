@@ -57,12 +57,14 @@ while($row1=mysqli_fetch_array($ret1)){
             </a>
             <a class="dropdown-item" href="prescription.php">
             <i class="fa-solid fa-prescription fa-sm fa-fw mr-2 text-dark"></i>
-                <!-- <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i> -->
+        
+                
                Prescription
             </a>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="change-password.php">
                 <i class="fas fa-cogs fa-sm fa-fw mr-2 text-dark"></i>
+                
               Change Password
             </a>
    

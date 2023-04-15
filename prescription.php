@@ -115,7 +115,7 @@ background: -webkit-linear-gradient(to right, #6df2f0, #6df2f0, #6df2f0, #6df2f0
 <?php include_once('includes/topbar.php');?>
 
 
-<div class="">
+<div>
 <div class="input-group mb-3 col-10 col-xl-5 mx-auto mb-2" >
   <input type="text" class="form-control shadow" placeholder="Search here" style="border-radius:20px;" id="search">
  
@@ -143,7 +143,7 @@ background: -webkit-linear-gradient(to right, #6df2f0, #6df2f0, #6df2f0, #6df2f0
         
         <div class="mt-1 apointment d-flex justify-content-center gap-2">
 
-            <a href="" class="btn btn-info btn-sm "><i class="fa-regular fa-eye"></i></a>
+            <!-- <a href="" class="btn btn-info btn-sm "><i class="fa-regular fa-eye"></i></a> -->
             <a href="prescription-pdf.php" class="btn btn-success btn-sm "><i class="fa-solid fa-download"></i></a>
            
         </div>
@@ -166,7 +166,7 @@ background: -webkit-linear-gradient(to right, #6df2f0, #6df2f0, #6df2f0, #6df2f0
         
         <div class="mt-1 apointment d-flex justify-content-center gap-2">
 
-            <a href="" class="btn btn-info btn-sm "><i class="fa-regular fa-eye"></i></a>
+            <!-- <a href="" class="btn btn-info btn-sm "><i class="fa-regular fa-eye"></i></a> -->
             <a href="prescription-pdf.php" class="btn btn-success btn-sm "><i class="fa-solid fa-download"></i></a>
            
         </div>
@@ -189,7 +189,7 @@ background: -webkit-linear-gradient(to right, #6df2f0, #6df2f0, #6df2f0, #6df2f0
         
         <div class="mt-1 apointment d-flex justify-content-center gap-2">
 
-            <a href="" class="btn btn-info btn-sm "><i class="fa-regular fa-eye"></i></a>
+            <!-- <a href="" class="btn btn-info btn-sm "><i class="fa-regular fa-eye"></i></a> -->
             <a href="prescription-pdf.php" class="btn btn-success btn-sm "><i class="fa-solid fa-download"></i></a>
            
         </div>
@@ -212,7 +212,7 @@ background: -webkit-linear-gradient(to right, #6df2f0, #6df2f0, #6df2f0, #6df2f0
         
         <div class="mt-1 apointment d-flex justify-content-center gap-2">
 
-            <a href="" class="btn btn-info btn-sm "><i class="fa-regular fa-eye"></i></a>
+            <!-- <a href="" class="btn btn-info btn-sm "><i class="fa-regular fa-eye"></i></a> -->
             <a href="prescription-pdf.php" class="btn btn-success btn-sm "><i class="fa-solid fa-download"></i></a>
            
         </div>
