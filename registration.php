@@ -9,11 +9,12 @@ if(isset($_POST['submit'])){
 $fname=$_POST['fullname'];
 $mnumber=$_POST['mobilenumber'];
 $email=$_POST['emailid'];
-$userpassword=$_POST['userpassword'];
+$role='patient';
+$userpassword=md5($_POST['userpassword']);
 $ret=mysqli_query($con,"select id from tbluserregistration where emailid='$email'");
 $result=mysqli_num_rows($ret);
 if($result==0){
-$query="insert into tbluserregistration(fullName,emailid,mobileNumber,loginPassword) values('$fname','$email','$mnumber','$userpassword')";
+$query="insert into tbluserregistration(fullName,emailid,mobileNumber,loginPassword,role) values('$fname','$email','$mnumber','$userpassword','$role')";
 $result = mysqli_multi_query($con, $query);
 if ($result) {
 echo '<script>alert("Registration succesfull")</script>';

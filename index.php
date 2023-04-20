@@ -10,12 +10,20 @@ include_once('includes/config.php');
 if(isset($_POST['login']))
   {
 $email=$_POST['emailid'];
-$userpassword=$_POST['userpassword'];
-    $query=mysqli_query($con,"select id from tbluserregistration where  emailid='$email' && loginPassword='$userpassword' ");
+$userpassword=md5($_POST['userpassword']);
+    $query=mysqli_query($con,"select * from tbluserregistration where  emailid='$email' && loginPassword='$userpassword' ");
     $ret=mysqli_fetch_array($query);
-    if($ret>0){
+    if($ret['role']=='admin'){
+      $_SESSION['aid']=$ret['id'];
+     header('location:admin-dashboard.php');
+    }
+    elseif($ret['role']=='patient'){
       $_SESSION['aid']=$ret['id'];
      header('location:dashboard.php');
+    }
+    elseif($ret['role']=='doctor'){
+      $_SESSION['aid']=$ret['id'];
+     header('location:doctor-dashboard.php');
     }
     else{
       session_start(); // Start the session

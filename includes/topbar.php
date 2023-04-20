@@ -23,7 +23,7 @@
 <?php
 //Fetching admin Name
 $adid=$_SESSION['aid'];
-$ret1=mysqli_query($con,"select fullName from tbluserregistration where ID='$adid'");
+$ret1=mysqli_query($con,"select * from tbluserregistration where ID='$adid'");
 while($row1=mysqli_fetch_array($ret1)){
 
 ?>
@@ -31,7 +31,7 @@ while($row1=mysqli_fetch_array($ret1)){
                 src="img/profile.png">
     <span class="mr-1 text-dark small fs-6 font-weight-bold ml-1"><?php  echo $row1['fullName'];?></span>
            
-       <?php } ?>
+  
            
                 
         </a>
@@ -40,27 +40,70 @@ while($row1=mysqli_fetch_array($ret1)){
         <div class=" dropdown-menu bg-white"
             aria-labelledby="userDropdown"> -->
             <ul class="dropdown-menu  pr-5" aria-labelledby="userDropdown">
-            <a class="dropdown-item " href="profile.php">
+            <a class="dropdown-item " href="patient-profile.php">
                 <i class="fas fa-user fa-sm fa-fw mr-2 text-dark"></i>
                 Profile
             </a>
-            <a class="dropdown-item" href="dashboard.php">
-            <i class="fa-solid fa-house fa-sm fa-fw mr-2 text-dark"></i>
+            <?php if ($row1['role']=='admin')
+               {
+                ?>
+              <a class="dropdown-item" href="admin-dashboard.php">
+              <i class="fa-solid fa-house fa-sm fa-fw mr-2 text-dark"></i>
                 <!-- <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i> -->
                 Dashboard
             </a>
+            
+                <?php
+               }
+               elseif($row1['role']=='doctor')
+               {
+                ?>
+                 <a class="dropdown-item" href="dashboard.php">
+                      <i class="fa-solid fa-house fa-sm fa-fw mr-2 text-dark"></i>
+                <!-- <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i> -->
+                Dashboard
+            </a>
+                <?php
+               }
+               else
+               {
+                ?>
+                   <a class="dropdown-item" href="dashboard.php">
+                      <i class="fa-solid fa-house fa-sm fa-fw mr-2 text-dark"></i>
+                         Dashboard
+                   </a>
+                      <?php
+               }
+            ?>
+         
+          
+
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="take-treatment.php">
             <i class="fa-solid fa-stethoscope fa-sm fa-fw mr-2 text-dark"></i>
                 <!-- <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i> -->
                 Take Treatement
             </a>
-            <a class="dropdown-item" href="prescription.php">
+            <?php if ($row1['role']=='patient')
+              {
+            ?>
+           <a class="dropdown-item" href="prescription.php">
             <i class="fa-solid fa-prescription fa-sm fa-fw mr-2 text-dark"></i>
         
                 
                Prescription
             </a>
+            <?php
+              }
+            ?>
+            <?php
+            if($row1['role']=='admin')
+            {
+                ?>
+
+                <?php
+            }
+            ?>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="change-password.php">
                 <i class="fas fa-cogs fa-sm fa-fw mr-2 text-dark"></i>
@@ -78,6 +121,7 @@ while($row1=mysqli_fetch_array($ret1)){
     </li>
 
 </ul>
+     <?php } ?>
 <?php endif;?>
 <img src="img/logo4.png"
 style="width:120px; height:60px" alt="logo" class="">
