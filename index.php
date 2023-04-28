@@ -98,7 +98,7 @@ border-bottom-right-radius: .3rem;
 
  
   
-        <div class="card rounded-5 text-black shadow mt-5 mx-auto " style="width:350px">
+        <div class="card rounded-5 text-black shadow mt-5 mx-auto" style="width:350px">
         <?php
 session_start(); // Start the session
 if(isset($_SESSION['success'])){
@@ -133,7 +133,8 @@ if(isset($_SESSION['success'])){
  
                   <div class="form-group">
                             <label>Password</label>
-                            <input type="password" class="form-control" id="userpassword" name="userpassword" placeholder="Enter your paassword" required="true">
+                            <input type="password" class="form-control" id="userpassword" name="userpassword" placeholder="Enter your paassword" required="true" id="id_password">
+                           
                                            
                   </div>
            
@@ -152,7 +153,7 @@ if(isset($_SESSION['success'])){
 </div>
   </div>
  
-
+    <!-- <script src="https://kit.fontawesome.com/496c26838e.js" crossorigin="anonymous"></script> -->
 
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>

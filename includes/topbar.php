@@ -76,31 +76,41 @@ while($row1=mysqli_fetch_array($ret1)){
                }
             ?>
          
-          
+          <!-- Patient -->
 
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="take-treatment.php">
+            <?php if ($row1['role']=='patient')
+              {
+            ?>
+              <a class="dropdown-item" href="take-treatment.php">
             <i class="fa-solid fa-stethoscope fa-sm fa-fw mr-2 text-dark"></i>
                 <!-- <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i> -->
                 Take Treatement
             </a>
-            <?php if ($row1['role']=='patient')
-              {
-            ?>
            <a class="dropdown-item" href="prescription.php">
-            <i class="fa-solid fa-prescription fa-sm fa-fw mr-2 text-dark"></i>
-        
-                
+            <i class="fa-solid fa-prescription fa-sm fa-fw mr-2 text-dark"></i> 
                Prescription
             </a>
             <?php
               }
             ?>
+
+            <!-- Admin -->
             <?php
             if($row1['role']=='admin')
             {
                 ?>
-
+            <a class="dropdown-item" href="add-patient.php">
+                <i class="fa-solid fa-hospital-user fa-sm fa-fw mr-2 text-dark"></i>
+        
+               Add Patients
+            </a>
+            <a class="dropdown-item" href="prescription.php">
+                <i class="fa-solid fa-user-doctor fa-sm fa-fw mr-2 text-dark"></i>
+                
+        
+               Add Doctors
+            </a>
                 <?php
             }
             ?>
