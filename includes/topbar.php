@@ -105,7 +105,7 @@ while($row1=mysqli_fetch_array($ret1)){
         
                Add Patients
             </a>
-            <a class="dropdown-item" href="prescription.php">
+            <a class="dropdown-item" href="add-doctor.php">
                 <i class="fa-solid fa-user-doctor fa-sm fa-fw mr-2 text-dark"></i>
                 
         

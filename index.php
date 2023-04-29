@@ -88,9 +88,9 @@ border-bottom-right-radius: .3rem;
 
 </head>
 
-<body id="page-top" style="background-image: url('https://i.pinimg.com/originals/36/42/29/3642291603d80cbf90ee7421ba227a8b.jpg');" class="row">
+<!-- <body id="page-top" style="background-image: url('https://i.pinimg.com/originals/36/42/29/3642291603d80cbf90ee7421ba227a8b.jpg');" class="row"> -->
 
-   
+  <body style="background-color:rgba(186, 27, 214, 0.458)">
  
 
 
@@ -113,9 +113,9 @@ if(isset($_SESSION['success'])){
   unset($_SESSION['success']); // Clear the success message
 }
 ?>   
-              <div class="card-body p-md-3 mx-md-3">
+              <div class="card-body p-md-3 mx-md-3 shadow" style="height: 500px;">
 
-                <div class="text-center">
+                <div class="text-center mt-5">
                   <img src="img/logo4.png"
                     style="width:190px; height:70px" alt="logo">
                  
