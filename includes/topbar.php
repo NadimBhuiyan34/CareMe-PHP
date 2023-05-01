@@ -1,6 +1,6 @@
      
     <div class="w-100">
-    <nav class="navbar navbar-expand navbar-light topbar mb-4 static-top shadow border-bottom-success w-100" style="background-color:#69f0ff">
+    <nav class="navbar navbar-expand navbar-light topbar mb-4 static-top shadow border-bottom-success w-100" style="background-color:hwb(180 3% 4% / 0.561)">
     <!-- <nav class="navbar navbar-expand navbar-light topbar mb-4 static-top shadow border-bottom-success w-100 gradient-custom-2"> -->
 
                 

@@ -49,6 +49,7 @@ $userpassword=md5($_POST['userpassword']);
     <meta name="author" content="">
 
     <title>CareMe |  User Login</title>
+    <link rel="icon" type="image/png" href="img/title-logo.png"/>
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
 <style type="text/css">
