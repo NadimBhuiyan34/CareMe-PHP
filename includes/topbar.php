@@ -6,7 +6,7 @@
                 
        
 <!-- Topbar Search -->
-<?php if($_SESSION['aid']):?>
+<?php if($_SESSION['user']['id']):?>
 
 <!-- Topbar Navbar -->
 
@@ -22,7 +22,7 @@
         data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 <?php
 //Fetching admin Name
-$adid=$_SESSION['aid'];
+$adid=$_SESSION['user']['id'];
 $ret1=mysqli_query($con,"select * from tbluserregistration where ID='$adid'");
 while($row1=mysqli_fetch_array($ret1)){
 

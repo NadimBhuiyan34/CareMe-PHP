@@ -1,10 +1,23 @@
  <?php
 session_start();
 include_once('includes/config.php');
-if (strlen($_SESSION['aid']==0)) {
+ if (strlen($_SESSION['user']['id']==0)) {
   header('location:logout.php');
-  } else{
+  } 
+ if ($_SESSION['user']['role'] != "admin") {
+    if (isset($_SERVER['HTTP_REFERER'])) {
+        // Redirect back to the previous page
+        header("Location: {$_SERVER['HTTP_REFERER']}");
+        exit;
+    } else {
+        // Redirect to a default page
+        header("Location: /default.php");
+        exit;
+    }
+}
 
+
+{
 ?>
 <!DOCTYPE html>
 <html lang="en">

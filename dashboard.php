@@ -1,7 +1,15 @@
 <?php
 session_start();
 include_once('includes/config.php');
-if (strlen($_SESSION['aid']==0)) {
+$device_id=$_SESSION['user']['device'];
+
+$sensor = "SELECT * FROM sensordata WHERE device='$device_id' ORDER BY created_at DESC LIMIT 10";
+$result = $con->query($sensor);
+if (!$result) {
+  { echo "Error: " . $sql . "<br>" . $con->error; }
+}
+
+if (strlen($_SESSION['user']['id']==0)) {
   header('location:logout.php');
   } else{
 
@@ -24,7 +32,7 @@ if (strlen($_SESSION['aid']==0)) {
     <link rel="stylesheet" href="vendor/bootstrap/assets/css/datatables.min.css">
  
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
-     
+       <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>  
   
 <style>
     table {
@@ -106,13 +114,13 @@ background: -webkit-linear-gradient(to right, #6df2f0, #6df2f0, #6df2f0, #6df2f0
 
 
                                             <div class="text-xs font-weight-bold text-primary  mb-1 text-center">
-                                             Room Temperature</div>
+                                             Room-Temp</div>
                                             
                                             </div>
 
-
+                                        
                                         <div class="col-auto text-center mx-auto">
-                                           <strong class="text-dark fs-4">32</strong>
+                                           <strong class="text-dark fs-4" id="room-temp"></strong>
                                         </div>
                                     </div>
                                 </div>
@@ -132,7 +140,7 @@ background: -webkit-linear-gradient(to right, #6df2f0, #6df2f0, #6df2f0, #6df2f0
                                             
                                         </div>
                                         <div class="col-auto text-center mx-auto">
-                                           <strong class="text-dark fs-4">50</strong>
+                                           <strong class="text-dark fs-4" id="humidity"></strong>
                                         </div>
                                     </div>
                                 </div>
@@ -148,11 +156,11 @@ background: -webkit-linear-gradient(to right, #6df2f0, #6df2f0, #6df2f0, #6df2f0
 
 
                                             <div class="text-xs font-weight-bold text-primary mb-1 text-center">
-                                             Body Temperature</div>
+                                             Body-Temp</div>
                                             
                                         </div>
                                         <div class="col-auto text-center mx-auto">
-                                           <strong class="text-dark fs-4">96</strong>
+                                           <strong class="text-dark fs-4" id="body-temp"></strong>
                                         </div>
                                     </div>
                                 </div>
@@ -172,7 +180,7 @@ background: -webkit-linear-gradient(to right, #6df2f0, #6df2f0, #6df2f0, #6df2f0
                                             
                                         </div>
                                         <div class="col-auto text-center mx-auto">
-                                           <strong class="text-dark fs-4">85</strong>
+                                           <strong class="text-dark fs-4" id="heart-rate"></strong>
                                         </div>
                                     </div>
                                 </div>
@@ -180,77 +188,7 @@ background: -webkit-linear-gradient(to right, #6df2f0, #6df2f0, #6df2f0, #6df2f0
                             </div>
                         </div>
 
-                        <!-- Table start -->
-                        <!-- <div class=" row">
-                            <div class="col-12 col-xl-12 col-md-12 col-sm-12 tableFixHead">
-
-                           
-                            <table class="table bg-white shadow rounded  border-left-primary">
-                             <thead  class="text-center bg-info text-white">
-                                <tr>
-                            
-                                <th>Room Temp</th>
-                                <th>Humidity</th>
-                                <th>Body Temp</th>
-                                <th class="">Heart Rate</th>
-                                <th>Date</th>
-                                </tr>
-                             </thead>
-                             <tbody  class="text-center text-dark">
-                                <tr>
-                                  
-                                    <td>52</td>
-                                    <td>55</td>
-                                    <td>85</td>
-                                    <td>85</td>
-                                    <td>12/02/2023hhh</td>
-                                </tr>
-                                <tr>
-                                 
-                                    <td>52</td>
-                                    <td>55</td>
-                                    <td>85</td>
-                                    <td>85</td>
-                                    <td>12/02/2023jhh</td>
-                                </tr>
-                                <tr>
-                                 
-                                    <td>52</td>
-                                    <td>55</td>
-                                    <td>85</td>
-                                    <td>85</td>
-                                    <td>12/02/2023jhh</td>
-                                </tr>
-                                <tr>
-                                 
-                                    <td>52</td>
-                                    <td>55</td>
-                                    <td>85</td>
-                                    <td>85</td>
-                                    <td>12/02/2023jhh</td>
-                                </tr>
-                                <tr>
-                                 
-                                    <td>52</td>
-                                    <td>55</td>
-                                    <td>85</td>
-                                    <td>85</td>
-                                    <td>12/02/2023jhh</td>
-                                </tr>
-                                <tr>
-                                 
-                                    <td>52</td>
-                                    <td>55</td>
-                                    <td>85</td>
-                                    <td>85</td>
-                                    <td>12/02/2023jhh</td>
-                                </tr>
-                             </tbody>
-                            </table>
-
-                        </div> -->
-
-
+                       
 
                         <!-- Data table -->
                         <div class="row">
@@ -266,126 +204,15 @@ background: -webkit-linear-gradient(to right, #6df2f0, #6df2f0, #6df2f0, #6df2f0
                             </tr>
                         </thead>
                         <tbody>
+                             <?PHP while ($row = mysqli_fetch_assoc($result)) {?>
                             <tr>
-                            <td>52</td>
-                                    <td>55</td>
-                                    <td>85</td>
-                                    <td>85</td>
-                                    <td>12/02/2023jhh</td>
+                                    <td><?PHP echo $row['room_temperature'];?></td>
+                                    <td><?PHP echo $row['humidity'];?></td>
+                                    <td><?PHP echo $row['body_temperature'];?></td>
+                                    <td><?PHP echo $row['heart_rate'];?></td>
+                                    <td><?PHP echo date("Y-m-d h:i: A", strtotime($row['created_at']));?></td>
                             </tr>
-                            <tr>
-                            <td>52</td>
-                                    <td>55</td>
-                                    <td>85</td>
-                                    <td>85</td>
-                                    <td>12/02/2024</td>
-                            </tr>
-                            <tr>
-                            <td>52</td>
-                                    <td>55</td>
-                                    <td>85</td>
-                                    <td>85</td>
-                                    <td>12/02/2023jhh</td>
-                            </tr>
-                            <tr>
-                            <td>52</td>
-                                    <td>55</td>
-                                    <td>85</td>
-                                    <td>85</td>
-                                    <td>12/02/2023jhh</td>
-                            </tr>
-                            <tr>
-                                    <td>52</td>
-                                    <td>55</td>
-                                    <td>85</td>
-                                    <td>85</td>
-                                    <td>12/02/2023jhh</td>
-                            </tr>
-                            <tr>
-                            <td>52</td>
-                                    <td>55</td>
-                                    <td>85</td>
-                                    <td>85</td>
-                                    <td>12/02/2023jhh</td>
-                            </tr>
-                            <tr>
-                            <td>52</td>
-                                    <td>55</td>
-                                    <td>85</td>
-                                    <td>85</td>
-                                    <td>12/02/2023jhh</td>
-                            </tr>
-                            <tr>
-                            <td>52</td>
-                                    <td>55</td>
-                                    <td>85</td>
-                                    <td>85</td>
-                                    <td>12/02/2023jhh</td>
-                            </tr>
-                            <tr>
-                            <td>52</td>
-                                    <td>55</td>
-                                    <td>85</td>
-                                    <td>85</td>
-                                    <td>12/02/2023jhh</td>
-                            </tr>
-                            <tr>
-                            <td>52</td>
-                                    <td>55</td>
-                                    <td>85</td>
-                                    <td>85</td>
-                                    <td>12/02/2023jhh</td>
-                            </tr>
-                            <tr>
-                            <td>52</td>
-                                    <td>55</td>
-                                    <td>85</td>
-                                    <td>85</td>
-                                    <td>12/02/2023jhh</td>
-                            </tr>
-                            <tr>
-                            <td>52</td>
-                                    <td>55</td>
-                                    <td>85</td>
-                                    <td>85</td>
-                                    <td>12/02/2023jhh</td>
-                            </tr>
-                            <tr>
-                            <td>52</td>
-                                    <td>55</td>
-                                    <td>85</td>
-                                    <td>85</td>
-                                    <td>12/02/2023jhh</td>
-                            </tr>
-                            <tr>
-                            <td>52</td>
-                                    <td>55</td>
-                                    <td>85</td>
-                                    <td>85</td>
-                                    <td>12/02/2023jhh</td>
-                            </tr>
-                            <tr>
-                            <td>52</td>
-                                    <td>55</td>
-                                    <td>85</td>
-                                    <td>85</td>
-                                    <td>12/02/2023jhh</td>
-                            </tr>
-                            <tr>
-                            <td>52</td>
-                                    <td>55</td>
-                                    <td>85</td>
-                                    <td>85</td>
-                                    <td>12/02/2023jhh</td>
-                            </tr>
-                            <tr>
-                            <td>52</td>
-                                    <td>55</td>
-                                    <td>85</td>
-                                    <td>85</td>
-                                    <td>12/02/2023jhh</td>
-                            </tr>
-                             
+                           <?PHP } ?>
                         </tbody>
                     </table>
                 </div>
@@ -397,12 +224,33 @@ background: -webkit-linear-gradient(to right, #6df2f0, #6df2f0, #6df2f0, #6df2f0
            
         </div>
 
-                    
-     <script type="text/javascript">
-        $(document).ready(function () {
-    $('#example').DataTable();
+      
+     <script>
+     $(document).ready(function () {
+  fetchSensorData();
 });
-    </script>
+
+const apiUrl = "getdata.php";
+const device_id = "nadim"; // Replace with your device ID
+const params = `device_id=${encodeURIComponent(device_id)}`;
+
+function fetchSensorData() {
+  $.getJSON(`${apiUrl}?${params}`, function(data) {
+    // Update the values of the sensor data in the HTML elements
+    $("#room-temp").text(data.room_temperature);
+    $("#body-temp").text(data.body_temperature);
+    $("#humidity").text(data.humidity);
+    $("#heart-rate").text(data.heart_rate);
+  });
+}
+
+setInterval(fetchSensorData, 2000);
+
+     </script>   
+
+
+        
+     
 
     <!-- Fontawesoma -->
     <script src="https://kit.fontawesome.com/496c26838e.js" crossorigin="anonymous"></script>

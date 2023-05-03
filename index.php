@@ -14,11 +14,22 @@ $userpassword=md5($_POST['userpassword']);
     $query=mysqli_query($con,"select * from tbluserregistration where  emailid='$email' && loginPassword='$userpassword' ");
     $ret=mysqli_fetch_array($query);
     if($ret['role']=='admin'){
-      $_SESSION['aid']=$ret['id'];
+       $_SESSION['user'] = array(
+           'id' => $ret['id'],
+           'device' => $ret['device'],
+           'role' => $ret['role'],
+   
+);
      header('location:admin-dashboard.php');
     }
     elseif($ret['role']=='patient'){
-      $_SESSION['aid']=$ret['id'];
+      // $_SESSION['aid']=$ret['id'];
+      $_SESSION['user'] = array(
+     'id' => $ret['id'],
+     'device' => $ret['device'],
+    'role' => $ret['role'],
+   
+);
      header('location:dashboard.php');
     }
     elseif($ret['role']=='doctor'){
