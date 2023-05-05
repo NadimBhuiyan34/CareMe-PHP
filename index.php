@@ -20,7 +20,7 @@ $userpassword=md5($_POST['userpassword']);
            'role' => $ret['role'],
    
 );
-     header('location:admin-dashboard.php');
+     header('location:view/admin/admin-dashboard.php');
     }
     elseif($ret['role']=='patient'){
       // $_SESSION['aid']=$ret['id'];
@@ -30,7 +30,7 @@ $userpassword=md5($_POST['userpassword']);
     'role' => $ret['role'],
    
 );
-     header('location:dashboard.php');
+     header('location:view/patient/dashboard.php');
     }
     elseif($ret['role']=='doctor'){
       $_SESSION['aid']=$ret['id'];

@@ -1,0 +1,9 @@
+{
+    "name": "nadim/care-me-php",
+    "description": "it is a packege",
+    "type": "library",
+    "minimum-stability": "dev",
+    "require": {
+        "phpmailer/phpmailer": "dev-master"
+    }
+}
