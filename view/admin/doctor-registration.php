@@ -19,11 +19,11 @@ try{
     $mail->isSMTP();                                            //Send using SMTP
     $mail->Host = 'smtp.gmail.com';                     //Set the SMTP server to send through
     $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
-    $mail->Username   = 'caremeproject2023@gmail.com';                     //SMTP username
-    $mail->Password   = 'dxlmmsvhbgoxezib';                               //SMTP password
+    $mail->Username   = 'caremeprojectiot@gmail.com';                     //SMTP username
+    $mail->Password   = 'szcjrmgixdxbxjul';                               //SMTP password
     $mail->SMTPSecure = 'ssl';            
     $mail->Port       = 465;  
-    $mail->setFrom('caremeproject2023@gmail.com');
+    $mail->setFrom('caremeprojectiot@gmail.com');
     $mail->addAddress($email);     //Add a recipient
     $mail->isHTML(true);                                  //Set email format to HTML
     $mail->Subject = 'Email Verification from CareMe';
@@ -64,35 +64,48 @@ try{
     $result=mysqli_num_rows($ret);
 
 if($result==0){
-
-        $query="INSERT INTO `tbluserregistration`( `fullName`, `emailid`, `mobileNumber`, `device`, `loginPassword`, `role`, `varification_code`, `is_varify`) VALUES ('$fname','$email','$mnumber','$device_id','$userpassword','$role','$v_code','0')";
-
-    if(mysqli_query($con, $query) && sendMail($email,$v_code,$random_password,$fname))
-    {
-   
+  $query="INSERT INTO `tbluserregistration`( `fullName`, `emailid`, `mobileNumber`, `device`, `loginPassword`, `role`, `varification_code`, `is_varify`) VALUES ('$fname','$email','$mnumber','$device_id','$userpassword','$role','$v_code','0')";
+     $user_registration= mysqli_query($con, $query);
+     $mail=sendMail($email,$v_code,$random_password,$fname);
+    
+       
+     $ret=mysqli_query($con,"select id from tbluserregistration where emailid='$email'");
+        // $user = mysqli_query($con, $ret);
+       
+    $row = mysqli_fetch_assoc( $ret);
+    $user_id = $row['id'];
+    // $user_id = 1;
+  
+    $sql = "INSERT INTO `doctor_profiles`(`user_id`, `academic_title`, `specialties`, `degree`, `collage`, `image`) VALUES ('$user_id','','','','','profile.png')";
+    $profile = mysqli_query($con,$sql);
       
+    if($user_registration && $mail &&  $profile)
+    {
           session_start(); 
-      $_SESSION['success'] = "Registration Successfull!";
+     $_SESSION['success'] = array('message' => "Registration Successfull!", 'type' => "success",'icon'=>"fa-square-check");
+
       // Redirect to some page where you want to show the success message
       header("Location: ../../view/admin/doctor-registration.php");
            exit();
-        
     }
     else
     {
+         
           session_start(); 
-        $_SESSION['success'] = "Registration Fail";
+        $_SESSION['success'] = array('message' => "Registration Fail!", 'type' => "danger",'icon'=>"fa-triangle-exclamation");
       // Redirect to some page where you want to show the success message
       header("Location: ../../view/admin/doctor-registration.php");
-           exit();
+           exit();  
     }
+      
+         
 
- 
 }
 else 
 {
      session_start(); 
-     $_SESSION['success'] = "This email is already taken";
+     
+     $_SESSION['success'] = array('message' => "This email is already taken", 'type' => "danger",'icon'=>"fa-triangle-exclamation");
       // Redirect to some page where you want to show the success message
       header("Location: ../../view/admin/doctor-registration.php");
           exit();
@@ -178,20 +191,11 @@ error:function (){}
                                     <h6 class="m-0 font-weight-bold text-primary text-center"><i class="fa-solid fa-user-doctor fa-beat fa-xl mr-2"></i>Doctor Registration</h6>
                                 </div>
                                 <div class="card-body">
-                                            <?php
-session_start(); // Start the session
-if(isset($_SESSION['success'])){
-  ?>
-<div class="alert alert-warning alert-dismissible fade show" role="alert">
-  <?php echo $_SESSION['success'] ?>
- 
-</div>
-<?php
- 
-  
-  unset($_SESSION['success']); // Clear the success message
-}
-?> 
+ <!-- alert message -->
+<?php include_once('../../includes/alert-message.php'); ?>
+<!-- end of elert message -->
+
+
                                     <input type="hidden" name="role" value="doctor">
                         <div class="form-group">
                                         <label>Full Name</label>
@@ -207,10 +211,10 @@ if(isset($_SESSION['success'])){
                                             <input type="email" class="form-control" id="emailid" name="emailid" placeholder="Enter your email id" required="true" onBlur="emailAvailability()">    <span id="email-availability-status" style="font-size:12px;"></span>
                                         </div>
 
-                                                <div class="form-group">
+                                                <!-- <div class="form-group">
                                              <label>Password</label>
                                             <input type="password" class="form-control" id="userpassword" name="userpassword" placeholder="Enter your paassword" required="true">
-                                        </div>
+                                        </div> -->
            
       <div class="form-group">
                                  <input type="submit" class="btn btn-primary btn-user btn-block" name="submit" id="submit">                           

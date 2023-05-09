@@ -103,7 +103,7 @@ background: -webkit-linear-gradient(to right, #6df2f0, #6df2f0, #6df2f0, #6df2f0
 <body  class="gradient-custom-3">
  
 <?php include_once('../../includes/topbar.php');?>
- <div class="row m-auto">
+ <div class="row mx-auto">
     
                     <div class="col-xl-3 col-md-6 mb-4 col-6">
                             <div class="card border-left-success shadow">
